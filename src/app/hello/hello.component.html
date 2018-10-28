@@ -1,0 +1,12 @@
+<div>
+  Component hello
+  <br/>
+  <br />
+  global role: <b>{{globals.role}}</b>
+</div>
+<div>
+  <input [(ngModel)]="role" />
+  <button (click)="changedRole()">aplly</button>
+  <br>
+  {{role}}
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Formulaire de contact</h1>
+  <form #f="ngForm" (ngSubmit)="onSaveContact(f.value)">
+    <div class="form-group">
+    <label for="firstname">Nom & prénom</label>
+    <input type="text" id="firstname" required minlength="3" maxlength="5" ngModel name="firstname" #firstname="ngModel" class="form-control" placeholder="Votre nom et prénom" >
+    <div style="background-color:Tomato;" *ngIf="firstname.touched && !firstname.valid">
+      <div *ngIf="firstname.errors.required">required</div>
+      <div *ngIf="firstname.errors.minlength">caractere plus 3</div>
+    
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="sujet">Sujet</label>
+    <input type="text" id="sujet"  required email ngModel #sujet="ngModel" name="sujet" class="form-control" placeholder="L'objet de votre message">
+    <div style="background-color:Tomato;" *ngIf="sujet.touched && !sujet.valid">
+      <div *ngIf="sujet.errors.required">required</div>
+      <div *ngIf="sujet.errors.email">you need adress email</div>
+      </div>
+  </div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <input  id="email" type="email"  required ngModel #email="ngModel" name="email" class="form-control" placeholder="Votre email">
+
+</div>
+<div class="form-group">
+    <label for="subject">Message</label>
+    <textarea id="subject"  required ngModel #subject="ngModel" name="subject" class="form-control" placeholder="Votre message" style="height:200px"></textarea>
+</div>
+    <button type="submit" [disabled]="!f.valid"> envoyer</button>
+  </form>
+</div>
